@@ -23,7 +23,10 @@ toggleBtn.addEventListener("click", () => {
         toggleBtn.classList.add("toggled");
         darkenText.classList.remove("unselected");
     }
-    reset();
+});
+
+darkenText.addEventListener("click", () => {
+    
 });
 
 hexInput.addEventListener("keyup", () => {
@@ -32,7 +35,6 @@ hexInput.addEventListener("keyup", () => {
    
    const strippedHex = hex.replace('#', '');
    inputColor.style.backgroundColor = "#" + strippedHex;
-   reset();
 });
 
 
@@ -71,6 +73,7 @@ const convertRGBToHex = (r, g, b) => {
     return "#" + convertedR + convertedG + convertedB;
 }
 
+
 const alterColor = (hex, percentage) => {
     //console.log(`hex: ${hex}, percentage: ${percentage}`);
     
@@ -105,15 +108,6 @@ slider.addEventListener("input", () => {
     alteredColor.style.backgroundColor = alteredHex;
     alteredColorText.innerText = `Altered Color ${alteredHex}`;
 });
-
-const reset = () => {
-    // Reset stuff
-    
-    slider.value = 0;
-    sliderText.innerText = "0%";
-    alteredColorText.innerText = `Altered Color ${hexInput.value}`;
-    alteredColor.style.backgroundColor = hexInput.value;
-}
 
 
 
